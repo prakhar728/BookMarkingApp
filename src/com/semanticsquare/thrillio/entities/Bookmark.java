@@ -29,4 +29,13 @@ public class Bookmark {
     public void setProfileURL(String profileURL) {
         this.profileURL = profileURL;
     }
+
+    @Override
+    public String toString() {
+        return "Bookmark{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", profileURL='" + profileURL + '\'' +
+                '}';
+    }
 }

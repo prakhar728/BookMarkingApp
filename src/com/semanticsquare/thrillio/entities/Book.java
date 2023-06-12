@@ -1,5 +1,7 @@
 package com.semanticsquare.thrillio.entities;
 
+import java.util.Arrays;
+
 public class Book extends  Bookmark{
     private int PublicationYear;
     private String Publisher;
@@ -45,5 +47,16 @@ public class Book extends  Bookmark{
 
     public void setAmazonRating(double amazonRating) {
         this.amazonRating = amazonRating;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "PublicationYear=" + PublicationYear +
+                ", Publisher='" + Publisher + '\'' +
+                ", authors=" + Arrays.toString(authors) +
+                ", genre='" + genre + '\'' +
+                ", amazonRating=" + amazonRating +
+                '}';
     }
 }

@@ -10,6 +10,7 @@ public class User {
     private String userType;
 
 
+
     public long getId() {
         return id;
     }
@@ -64,5 +65,17 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", email='" + email + '\'' +
+                ", userType='" + userType + '\'' +
+                '}';
     }
 }
