@@ -15,7 +15,7 @@ public class DataStore {
 
     public static final int BOOKMARK_TYPES_CONSTANT = 3;
     public static final int BOOKMARK_COUNT_PER_TYPE = 5;
-
+    private static int bookmarkIndex=0;
     private static User [] users = new User[TOTAL_USER_COUNT];
 
 
@@ -92,5 +92,10 @@ public class DataStore {
 
     public static Bookmark[][] getBookmarks() {
         return bookmarks;
+    }
+
+    public static void add(UserBookmark userBookmark) {
+        userBookmarks[bookmarkIndex] = userBookmark;
+        bookmarkIndex++;
     }
 }
