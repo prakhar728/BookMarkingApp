@@ -11,3 +11,6 @@ A modular bookmarking application which enables a user to add any link as bookma
 
 1. MVC architecture - Understanding the MVC architecture, it importance and role in a project.
 2. Design patterns - Aware about the Singleton pattern
+3.  TDD or Test-Driven Development An approach where Test first and code later is followed.
+ ![img.png](img.png)
+4. 
