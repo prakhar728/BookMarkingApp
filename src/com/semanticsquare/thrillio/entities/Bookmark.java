@@ -1,10 +1,12 @@
 package com.semanticsquare.thrillio.entities;
 
-public abstract  class Bookmark {
+import com.semanticsquare.thrillio.constants.KidFriendlyStatus;
+
+public abstract class Bookmark {
     private long id;
     private String title;
     private String profileURL;
-
+    private  String kidFriendlyStatus = KidFriendlyStatus.UNKNOWN;
 
     public long getId() {
         return id;
@@ -29,11 +31,13 @@ public abstract  class Bookmark {
     public void setProfileURL(String profileURL) {
         this.profileURL = profileURL;
     }
-    public void setProfileUrl(String profileUrl){
-        this.profileURL=profileUrl;
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileURL = profileUrl;
     }
 
     public abstract boolean isKidFriendlyEligible();
+
     @Override
     public String toString() {
         return "Bookmark{" +
@@ -41,5 +45,13 @@ public abstract  class Bookmark {
                 ", title='" + title + '\'' +
                 ", profileURL='" + profileURL + '\'' +
                 '}';
+    }
+
+    public String getKidFriendlyStatus() {
+        return kidFriendlyStatus;
+    }
+
+    public void setKidFriendlyStatus(String kidFriendlyStatus) {
+        this.kidFriendlyStatus = kidFriendlyStatus;
     }
 }
