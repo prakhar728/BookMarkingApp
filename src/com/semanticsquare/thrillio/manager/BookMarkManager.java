@@ -1,6 +1,5 @@
 package com.semanticsquare.thrillio.manager;
 
-import com.semanticsquare.thrillio.DataStore;
 import com.semanticsquare.thrillio.dao.BookMarkDao;
 import com.semanticsquare.thrillio.entities.*;
 
@@ -54,5 +53,12 @@ public class BookMarkManager {
         userBookmark.setUser(user);
         userBookmark.setBookmark(bookmark);
         dao.saveUserBookmark(userBookmark);
+    }
+
+    public void setKidFriendlyStatus(User user, String isKidFriendlyStatus, Bookmark bookmark) {
+        bookmark.setKidFriendlyStatus(isKidFriendlyStatus);
+        bookmark.setKidFriendlyMarkedBy(user);
+        System.out.println("Marked By:" + user.getEmail());
+        System.out.println("Kid Friendly Status:" + isKidFriendlyStatus+ ","+bookmark);
     }
 }
