@@ -8,6 +8,7 @@ public abstract class Bookmark {
     private String profileURL;
     private  String kidFriendlyStatus = KidFriendlyStatus.UNKNOWN;
     private User kidFriendlyMarkedBy;
+    private User SharedBy;
     public long getId() {
         return id;
     }
@@ -61,5 +62,13 @@ public abstract class Bookmark {
 
     public void setKidFriendlyMarkedBy(User kidFriendlyMarkedBy) {
         this.kidFriendlyMarkedBy = kidFriendlyMarkedBy;
+    }
+
+    public User getSharedBy() {
+        return SharedBy;
+    }
+
+    public void setSharedBy(User sharedBy) {
+        SharedBy = sharedBy;
     }
 }

@@ -61,4 +61,15 @@ public class BookMarkManager {
         System.out.println("Marked By:" + user.getEmail());
         System.out.println("Kid Friendly Status:" + isKidFriendlyStatus+ ","+bookmark);
     }
+
+    public void share(User user, Bookmark bookmark) {
+        bookmark.setSharedBy(user);
+        System.out.println("Data to be shared :");
+        if(bookmark instanceof Book){
+            System.out.println(((Book)bookmark).getItemData());
+        }
+        else if( bookmark instanceof WebLink){
+            System.out.println(((WebLink)bookmark).getItemData());
+        }
+    }
 }

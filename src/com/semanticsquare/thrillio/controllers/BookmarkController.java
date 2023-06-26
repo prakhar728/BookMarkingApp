@@ -19,4 +19,8 @@ public class BookmarkController {
     public void setKidFriendlyStatus(User user, String isKidFriendlyStatus, Bookmark bookmark) {
         BookMarkManager.getInstance().setKidFriendlyStatus(user,isKidFriendlyStatus,bookmark);
     }
+
+    public void share(User user, Bookmark bookmark) {
+        BookMarkManager.getInstance().share(user,bookmark);
+    }
 }

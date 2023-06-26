@@ -6,6 +6,7 @@ import com.semanticsquare.thrillio.controllers.BookmarkController;
 import com.semanticsquare.thrillio.entities.Book;
 import com.semanticsquare.thrillio.entities.Bookmark;
 import com.semanticsquare.thrillio.entities.User;
+import com.semanticsquare.thrillio.partner.Shareable;
 
 import javax.xml.crypto.Data;
 
@@ -26,19 +27,34 @@ public class View {
                     }
 
                 }
-                //MARK as KID FRIENDLY
                 if (user.getUserType().equals(UserType.CHIEF_EDITOR) || user.getUserType().equals(UserType.EDITOR)) {
+
+                    //MARKING AS KID FRIENDLY
                     if (bookmark.isKidFriendlyEligible() && bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.UNKNOWN)) {
                         String isKidFriendlyStatus = getKidFriendlyStatusDecision(bookmark);
                         if(!isKidFriendlyStatus.equals(KidFriendlyStatus.UNKNOWN)){
                             BookmarkController.getInstance().setKidFriendlyStatus(user,isKidFriendlyStatus,bookmark);
-
                         }
                     }
+
+                    //SHARING FUNCTIONALITY
+                    if(bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.APPROVED) && bookmark instanceof Shareable){
+                        boolean isShared = getShareDecision();
+                        if(isShared){
+                            BookmarkController.getInstance().share(user,bookmark);
+                        }
+                    }
+
                 }
             }
 
         }
+
+    }
+
+    //TODO: BELOW METHODS SIMULATE USER INPUT. AFTER IO, WE TAKE INPUT VIA CONSOLE
+    private static boolean getShareDecision() {
+        return Math.random() < 0.5;
 
     }
 
