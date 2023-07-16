@@ -4,6 +4,8 @@ import com.semanticsquare.thrillio.DataStore;
 import com.semanticsquare.thrillio.dao.UserDao;
 import com.semanticsquare.thrillio.entities.User;
 
+import java.util.List;
+
 public class UserManager {
     private UserManager (){}
     private static UserManager instance = new UserManager();
@@ -23,7 +25,7 @@ user.setEmail(email);
         return user;
     }
 
-    public User[] getUsers(){
+    public List<User> getUsers(){
         return dao.getUsers();
     }
 

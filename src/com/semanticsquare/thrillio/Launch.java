@@ -1,13 +1,16 @@
 package com.semanticsquare.thrillio;
 
+import com.semanticsquare.thrillio.entities.Book;
 import com.semanticsquare.thrillio.entities.Bookmark;
 import com.semanticsquare.thrillio.entities.User;
 import com.semanticsquare.thrillio.manager.BookMarkManager;
 import com.semanticsquare.thrillio.manager.UserManager;
 
+import java.util.List;
+
 public class Launch {
-    private static User[] users;
-    private static Bookmark[][] bookmarks;
+    private static List<User> users;
+    private static List<List<Bookmark>> bookmarks;
     private static void loadData(){
         System.out.println("1. Loading Data ...");
         DataStore.loadData();
@@ -27,7 +30,7 @@ public class Launch {
     }
 
     private static void printBookMarkData(){
-        for(Bookmark[] bookmarklist:bookmarks){
+        for(List<Bookmark> bookmarklist:bookmarks){
             for (Bookmark bk:bookmarklist
                  ) {
                 System.out.println(bk);

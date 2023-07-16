@@ -7,6 +7,7 @@ import com.semanticsquare.thrillio.util.IOUtil;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 public class BookMarkManager {
     private static BookMarkManager instance = new BookMarkManager();
@@ -49,7 +50,7 @@ public class BookMarkManager {
 
         return movie;
     }
-    public Bookmark[][] getBookmarks(){
+    public List<List<Bookmark>> getBookmarks(){
         return dao.getBookmarks();
     }
 

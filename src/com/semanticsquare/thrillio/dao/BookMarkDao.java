@@ -4,8 +4,10 @@ import com.semanticsquare.thrillio.DataStore;
 import com.semanticsquare.thrillio.entities.Bookmark;
 import com.semanticsquare.thrillio.entities.UserBookmark;
 
+import java.util.List;
+
 public class BookMarkDao {
-    public Bookmark[][] getBookmarks(){
+    public List<List<Bookmark>> getBookmarks(){
         return DataStore.getBookmarks();
     }
 

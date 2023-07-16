@@ -9,13 +9,14 @@ import com.semanticsquare.thrillio.entities.User;
 import com.semanticsquare.thrillio.partner.Shareable;
 
 import javax.xml.crypto.Data;
+import java.util.List;
 
 public class View {
-    public static void browse(User user, Bookmark[][] bookmarks) {
+    public static void browse(User user, List<List<Bookmark>> bookmarks) {
         System.out.println("\n" + user.getEmail() + "is browsing items ...");
 
         int bookmarkCount = 0;
-        for (Bookmark[] bookmarklist : bookmarks) {
+        for (List<Bookmark> bookmarklist : bookmarks) {
             for (Bookmark bookmark : bookmarklist) {
                 // BOOKMARKING
                 if (bookmarkCount < DataStore.USER_BOOKMARK_LIMIT) {
