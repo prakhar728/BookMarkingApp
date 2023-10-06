@@ -1,11 +1,13 @@
 package com.semanticsquare.thrillio.entities;
 
+import com.semanticsquare.thrillio.constants.Gender;
+
 public class User {
     private long id;
     private String password;
     private String firstName;
     private String lastName;
-    private int gender;
+    private Gender gender;
     private String email;
     private String userType;
 
@@ -43,11 +45,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

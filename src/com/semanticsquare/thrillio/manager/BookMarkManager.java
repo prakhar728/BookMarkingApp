@@ -1,5 +1,8 @@
 package com.semanticsquare.thrillio.manager;
 
+import com.semanticsquare.thrillio.constants.BookGenre;
+import com.semanticsquare.thrillio.constants.KidFriendlyStatus;
+import com.semanticsquare.thrillio.constants.MovieGenre;
 import com.semanticsquare.thrillio.dao.BookMarkDao;
 import com.semanticsquare.thrillio.entities.*;
 import com.semanticsquare.thrillio.util.HttpConnect;
@@ -26,7 +29,7 @@ public class BookMarkManager {
         weblink.setUrl(url);
         return weblink;
     }
-    public Book createBook(long id,String title,int publicationYear,String publisher,String[] authors,String genre,double amazonRating){
+    public Book createBook(long id, String title, int publicationYear, String publisher, String[] authors, BookGenre genre, double amazonRating){
         Book book = new Book();
         book.setId(id);
         book.setTitle(title);
@@ -37,7 +40,7 @@ public class BookMarkManager {
         book.setGenre(genre);
         return book;
     }
-    public Movie createMovie(long id, String title, int releaseYear,String[]cast,String[] directors,String genre,double imdbRating){
+    public Movie createMovie(long id, String title, int releaseYear, String[]cast, String[] directors, MovieGenre genre, double imdbRating){
         Movie movie= new Movie();
         movie.setId(id);
         movie.setTitle(title);
@@ -58,31 +61,31 @@ public class BookMarkManager {
         UserBookmark userBookmark = new UserBookmark();
         userBookmark.setUser(user);
         userBookmark.setBookmark(bookmark);
-        if(bookmark instanceof WebLink){
-            try{
-                String url = ((WebLink)bookmark).getUrl();
-                if(!url.endsWith(".pdf")){
-                    String webPage = HttpConnect.download(((WebLink)bookmark).getUrl());
-                    System.out.println("Not writing?");
-
-                    if(webPage !=null){
-                        System.out.println("writing?");
-                        IOUtil.write(webPage,bookmark.getId());
-                    }
-                }
-            }
-            catch (MalformedURLException e){
-                e.printStackTrace();
-            }
-            catch (URISyntaxException e){
-                e.printStackTrace();
-            }
-        }
+//        if(bookmark instanceof WebLink){
+//            try{
+//                String url = ((WebLink)bookmark).getUrl();
+//                if(!url.endsWith(".pdf")){
+//                    String webPage = HttpConnect.download(((WebLink)bookmark).getUrl());
+//                    System.out.println("Not writing?");
+//
+//                    if(webPage !=null){
+//                        System.out.println("writing?");
+//                        IOUtil.write(webPage,bookmark.getId());
+//                    }
+//                }
+//            }
+//            catch (MalformedURLException e){
+//                e.printStackTrace();
+//            }
+//            catch (URISyntaxException e){
+//                e.printStackTrace();
+//            }
+//        }
 
         dao.saveUserBookmark(userBookmark);
     }
 
-    public void setKidFriendlyStatus(User user, String isKidFriendlyStatus, Bookmark bookmark) {
+    public void setKidFriendlyStatus(User user, KidFriendlyStatus isKidFriendlyStatus, Bookmark bookmark) {
         bookmark.setKidFriendlyStatus(isKidFriendlyStatus);
         bookmark.setKidFriendlyMarkedBy(user);
         System.out.println("Marked By:" + user.getEmail());

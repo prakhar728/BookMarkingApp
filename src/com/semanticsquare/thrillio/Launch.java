@@ -47,6 +47,14 @@ public class Launch {
     public static void main(String [] args){
         loadData();
         startBookMarking();
+
+        runDownloaderJob();
+    }
+
+    private static void runDownloaderJob(){
+        WebpageDownloaderTask task = new WebpageDownloaderTask(true);
+        (new Thread(task)).start();
+
     }
 
 }
