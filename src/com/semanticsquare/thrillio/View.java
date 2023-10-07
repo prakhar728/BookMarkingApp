@@ -19,7 +19,7 @@ public class View {
         for (List<Bookmark> bookmarklist : bookmarks) {
             for (Bookmark bookmark : bookmarklist) {
                 // BOOKMARKING
-//                if (bookmarkCount < DataStore.USER_BOOKMARK_LIMIT) {
+                if (bookmarkCount < DataStore.USER_BOOKMARK_LIMIT) {
                     boolean isBookmarked = getBookmarkDecision(bookmark);
                     if (isBookmarked) {
                         bookmarkCount++;
@@ -27,7 +27,7 @@ public class View {
                         System.out.println("New Item Bookmarked --" + bookmark);
                     }
 
-//                }
+                }
                 if (user.getUserType().equals(UserType.CHIEF_EDITOR) || user.getUserType().equals(UserType.EDITOR)) {
 
                     //MARKING AS KID FRIENDLY

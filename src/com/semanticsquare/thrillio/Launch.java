@@ -1,5 +1,6 @@
 package com.semanticsquare.thrillio;
 
+import com.semanticsquare.thrillio.bgjobs.WebPageDownloaderTask;
 import com.semanticsquare.thrillio.entities.Book;
 import com.semanticsquare.thrillio.entities.Bookmark;
 import com.semanticsquare.thrillio.entities.User;
@@ -52,7 +53,7 @@ public class Launch {
     }
 
     private static void runDownloaderJob(){
-        WebpageDownloaderTask task = new WebpageDownloaderTask(true);
+        WebPageDownloaderTask task = new WebPageDownloaderTask(true);
         (new Thread(task)).start();
 
     }
