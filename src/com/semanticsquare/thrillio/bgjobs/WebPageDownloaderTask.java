@@ -32,6 +32,7 @@ public class WebPageDownloaderTask implements Runnable {
                 if(!webLink.getUrl().endsWith(".pdf")) {
                     webLink.setDownloadStatus(WebLink.DownloadStatus.FAILED);
                     String htmlPage = HttpConnect.download(webLink.getUrl());
+
                     webLink.setHtmlPage(htmlPage);
                 }else{
                     webLink.setDownloadStatus(WebLink.DownloadStatus.NOT_ELIGIBLE);
@@ -66,6 +67,7 @@ public class WebPageDownloaderTask implements Runnable {
                 throw new RuntimeException(e);
             }
         }
+        downloadExecutor.shutdown();
     }
 
     private void download(List<WebLink> webLinks){
@@ -86,7 +88,6 @@ public class WebPageDownloaderTask implements Runnable {
                 if(!future.isCancelled()){
                     WebLink webLink=  future.get();
                     String webPage  = webLink.getHtmlPage();
-                    System.out.println("The webpage to download is " + webPage);
                     if(webPage!=null){
                         IOUtil.write(webPage,webLink.getId());
                         webLink.setDownloadStatus(WebLink.DownloadStatus.SUCCESS);
@@ -106,6 +107,7 @@ public class WebPageDownloaderTask implements Runnable {
                 e.printStackTrace();
             }
         }
+
     }
 
     private List<Downloader<WebLink>> getTasks(List<WebLink> webLinks) {

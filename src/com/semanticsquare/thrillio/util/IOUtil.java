@@ -25,9 +25,9 @@ public class IOUtil {
 
     public static String read(InputStream in) {
         StringBuilder text = new StringBuilder();
+
         try (BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"))) {
             String line;
-            int count = 0;
             while ((line = br.readLine()) != null) {
                 text.append(line).append("\n");
             }

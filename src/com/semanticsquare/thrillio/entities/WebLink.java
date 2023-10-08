@@ -57,7 +57,7 @@ public class WebLink extends Bookmark implements Shareable {
     public String toString() {
         return "WebLink{" +
                 "url='" + url + '\'' +
-                ", host='" + host + '\'' +
+                ", host='" + host + '\'' + ", htmlpage='" + getHtmlPage() + "'"+
                 '}';
     }
 
