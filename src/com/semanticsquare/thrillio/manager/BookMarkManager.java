@@ -69,6 +69,7 @@ public class BookMarkManager {
     public void setKidFriendlyStatus(User user, KidFriendlyStatus isKidFriendlyStatus, Bookmark bookmark) {
         bookmark.setKidFriendlyStatus(isKidFriendlyStatus);
         bookmark.setKidFriendlyMarkedBy(user);
+        dao.updateKidFriendlyStatus(bookmark);
         System.out.println("Marked By:" + user.getEmail());
         System.out.println("Kid Friendly Status:" + isKidFriendlyStatus+ ","+bookmark);
     }
@@ -82,5 +83,6 @@ public class BookMarkManager {
         else if( bookmark instanceof WebLink){
             System.out.println(((WebLink)bookmark).getItemData());
         }
+        dao.sharedByInfo(bookmark);
     }
 }

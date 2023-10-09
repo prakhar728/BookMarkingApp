@@ -28,25 +28,25 @@ public class View {
                     }
 
                 }
-//                if (user.getUserType().equals(UserType.CHIEF_EDITOR) || user.getUserType().equals(UserType.EDITOR)) {
-//
-//                    //MARKING AS KID FRIENDLY
-//                    if (bookmark.isKidFriendlyEligible() && bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.UNKNOWN)) {
-//                        KidFriendlyStatus isKidFriendlyStatus = getKidFriendlyStatusDecision(bookmark);
-//                        if(!isKidFriendlyStatus.equals(KidFriendlyStatus.UNKNOWN)){
-//                            BookmarkController.getInstance().setKidFriendlyStatus(user,isKidFriendlyStatus,bookmark);
-//                        }
-//                    }
-//
-//                    //SHARING FUNCTIONALITY
-//                    if(bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.APPROVED) && bookmark instanceof Shareable){
-//                        boolean isShared = getShareDecision();
-//                        if(isShared){
-//                            BookmarkController.getInstance().share(user,bookmark);
-//                        }
-//                    }
-//
-//                }
+                if (user.getUserType().equals(UserType.CHIEF_EDITOR) || user.getUserType().equals(UserType.EDITOR)) {
+
+                    //MARKING AS KID FRIENDLY
+                    if (bookmark.isKidFriendlyEligible() && bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.UNKNOWN)) {
+                        KidFriendlyStatus isKidFriendlyStatus = getKidFriendlyStatusDecision(bookmark);
+                        if(!isKidFriendlyStatus.equals(KidFriendlyStatus.UNKNOWN)){
+                            BookmarkController.getInstance().setKidFriendlyStatus(user,isKidFriendlyStatus,bookmark);
+                        }
+                    }
+
+                    //SHARING FUNCTIONALITY
+                    if(bookmark.getKidFriendlyStatus().equals(KidFriendlyStatus.APPROVED) && bookmark instanceof Shareable){
+                        boolean isShared = getShareDecision();
+                        if(isShared){
+                            BookmarkController.getInstance().share(user,bookmark);
+                        }
+                    }
+
+                }
             }
 
         }
