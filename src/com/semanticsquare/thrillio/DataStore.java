@@ -44,7 +44,7 @@ public class DataStore {
             e.printStackTrace();
         }
 
-        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?useSSL=false","root","");
+        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?useSSL=false","root","passworD123@");
             Statement stmt = conn.createStatement();
         ){
                     loadUsers(stmt);
