@@ -47,9 +47,9 @@ public class Launch {
 
     public static void main(String [] args){
         loadData();
-        startBookMarking();
-
-        runDownloaderJob();
+//        startBookMarking();
+//
+//        runDownloaderJob();
     }
 
     private static void runDownloaderJob(){
